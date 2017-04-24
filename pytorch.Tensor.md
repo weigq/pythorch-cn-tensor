@@ -1,0 +1,221 @@
+# torch.Tensor
+`torch.Tensor`是一种包含单一数据类型元素的多维矩阵。
+
+Torch定义了七种CPU张量类型和八种GPU张量类型：
+
+| Data tyoe | CPU tensor | GPU tensor|
+| :---: | :---: | :---: |
+| 32-bit floating point | `torch.floattenor` | `torch.cuda.floattensor` |
+| 64-bit floating point | `torch.DoubleTenor` | `torch.cuda.DoubleTensor` |
+| 16-bit floating point | N/A | `torch.cuda.HalfTensor` |
+| 8-bit integer (unsigned) | `torch.ByteTenor` | `torch.cuda.ByteTensor` |
+| 8-bit integer (signed) | `torch.CharTenor` | `torch.cuda.CharTensor` |
+| 16-bit integer (signed) | `torch.ShortTenor` | `torch.cuda.ShortTensor` |
+| 32-bit integer (signed) | `torch.IntTenor` | `torch.cuda.IntTensor` |
+| 64-bit integer (signed) | `torch.LongTenor` | `torch.cuda.LongTensor` |
+
+`torch.Tensor`是默认的tensor类型（`torch.FlaotTensor`）的简称。
+
+一个张量tensor可以从Python的`list`或序列构建：
+```python
+>>> torch.FloatTensor([[1,2,3],[4,5,6]])
+1 2 3
+4 5 6
+[torch.FloatTensor of size 2x3]
+```
+一个空张量tensor可以通过规定其大小来构建：
+
+```python
+>>> torch.IntTensor(2, 4).zero_()
+0 0 0 0
+0 0 0 0
+[torch.IntTensor of size 2x4]
+```
+
+可以用python的indexing和slicing来获取和修改一个张量tensor中的内容：
+
+```python
+>>> x = torch.FloatTensor([[1, 2, 3], [4, 5, 6]])
+>>> print(x[1][2])
+6.0
+>>> x[0][1] = 8
+>>> print(x)
+ 1 8 3
+ 4 5 6
+[torch.FloatTensor of size 2x3]
+```
+
+每一个张量tensor都有一个相应的`torch.Storage`用来保存其数据。类tensor提供了多维的！！！！！！！！！！存储视图，并且定义了在数值运算。
+
+
+>！注意：
+会改变tensor的函数操作会用一个下划线后缀来标示。比如，`torch.FloatTensor.abs_()`会在原地计算绝对值，并返回改变后的tensor，而`tensor.FloatTensor.abs()`将会在一个新的tensor中计算结果。
+
+
+```python
+class torch.Tensor
+class torch.Tensor(*sizes)
+class torch.Tensor(size)
+class torch.Tensor(sequence)
+class torch.Tensor(ndarray)
+class torch.Tensor(tensor)
+class torch.Tensor(storage)
+```
+根据可选择的大小和数据新建一个tensor。
+如果没有提供参数，将会返回一个空的零维张量。如果提供了`numpy.ndarray`,`torch.Tensor`或`torch.Storage`，将会返回一个有同样参数的tensor.如果提供了python序列，将会新建一个y与序列相同的tensor。
+
+#### abs() $\rightarrow$ Tensor
+请查看`torch.abs()`
+#### abs_() $\rightarrow$ Tensor
+`abs()`的原地运算形式
+#### acos() $\rightarrow$ Tensor
+请查看`torch.acos()`
+#### acos_() $\rightarrow$ Tensor
+`acos()`的原地运算形式
+#### add(value)
+请查看`torch.add()`
+#### add_(value)
+`add()`的原地运算形式
+#### addbmm(beta=1, mat, alpha=1, batch1, batch2) $\to$ Tensor
+请查看`torch.addbmm()`
+#### addbmm_(beta=1, mat, alpha=1, batch1, batch2) $\to$ Tensor
+`addbmm()`的原地运算形式
+#### addcdiv(value=1, tensor1, tensor2) $\to$ Tensor
+请查看`torch.addcdiv()`
+#### addcdiv_(value=1, tensor1, tensor2) $\to$ Tensor
+`addcdiv()`的原地运算形式
+#### addcmul(value=1, tensor1, tensor2) $\to$ Tensor
+请查看`torch.addcmul()`
+#### addcmul_(value=1, tensor1, tensor2) $\to$ Tensor
+`addcmul()`的原地运算形式
+#### addmm(beta=1, mat, alpha=1, mat1, mat2) $\to$ Tensor
+请查看`torch.addmm()`
+#### addmm_(beta=1, mat, alpha=1, mat1, mat2) $\to$ Tensor
+`addmm()`的原地运算形式
+#### addmv(beta=1, tensor, alpha=1, mat, vec) $\to$ Tensor
+请查看`torch.addmv()`
+#### addmv_(beta=1, tensor, alpha=1, mat, vec) $\to$ Tensor
+`addmv()`的原地运算形式
+#### addr(beta=1, alpha=1, vec1, vec2) $\to$ Tensor
+请查看`torch.addr()`
+#### addr_(beta=1, alpha=1, vec1, vec2) $\to$ Tensor
+`addr()`的原地运算形式
+#### apply(callable) $\to$ Tensor
+将函数`callable`作用于tensor中每一个元素，并将每个元素用`callable`返回值替代。
+>！注意：
+该函数只能在CPU tensor中使用，并且不应该用在有较高性能要求的代码块。
+#### asin() $\to$ Tensor
+请查看`torch.asin()`
+#### asin_() $\to$ Tensor
+`asin()`的原地运算形式
+#### atan() $\to$ Tensor
+请查看`torch.atan()`
+#### atan2() $\to$ Tensor
+请查看`torch.atan2()`
+#### atan2_() $\to$ Tensor
+`atan2()`的原地运算形式
+#### atan_() $\to$ Tensor
+`atan()`的原地运算形式
+#### baddbmm(beta=1, alpha=1, batch1, batch2) $\to$ Tensor
+请查看`torch.baddbmm()`
+#### baddbmm_(beta=1, alpha=1, batch1, batch2) $\to$ Tensor
+`baddbmm()`的原地运算形式
+#### bernoulli() $\to$ Tensor
+请查看`torch.bernoulli()`
+#### bernoulli_() $\to$ Tensor
+`bernoulli()`的原地运算形式
+#### bmm(batch2) $\to$ Tensor
+请查看`torch.bmm()`
+#### byte() $\to$ Tensor
+将tensor改为byte类型
+#### bmm(median=0, sigma=1, *, generator=None) $\to$ Tensor
+将tensor中元素用柯西分布得到的数值填充：
+$$
+P(x)={\frac1 \pi} {\frac \sigma {(x-median)^2 + \sigma^2}}
+$$
+#### ceil() $\to$ Tensor
+请查看`torch.ceil()`
+#### ceil_() $\to$ Tensor
+`ceil()`的原地运算形式
+#### char() $\to$ Tensor
+将tensor元素改为char类型
+#### chunk(n_chunks, dim=0) $\to$ Tensor
+将tensor分割为tensor元组，请查看`torch.chunk()`
+#### clamp(min, max) $\to$ Tensor
+请查看`torch.clamp()`
+#### clamp_(min, max) $\to$ Tensor
+`clamp()`的原地运算形式
+#### clone() $\to$ Tensor
+返回与原tensor有相同大小和数据类型的tensor
+#### contiguous() $\to$ Tensor
+返回一个内存连续的有相同数据的tensor，如果原tensor内存连续则返回原tensor
+#### copy_(src, async=False) $\to$ Tensor
+将`src`中的元素复制到tensor中并返回tensor。
+两个tensor应该有相同数目的元素，可能是不同的数据类型或存储在不同的设备上。
+>参数：
+>* src(Tensor)-复制的源tensor
+>* async(bool)-如果为True并且复制是在CPU和GPU之间进行的，则复制后的拷贝可能会与原始信息同步，对于其他类型的复制操作则该参数不会发生作用。
+
+#### cos() $\to$ Tensor
+请查看`torch.cos()`
+#### cos_() $\to$ Tensor
+`cos()`的原地运算形式
+#### cosh() $\to$ Tensor
+请查看`torch.cosh()`
+#### cosh_() $\to$ Tensor
+`cosh()`的原地运算形式
+#### cpu() $\to$ Tensor
+如果在CPU上没有该tensor形式，则会返回一个CPU的拷贝
+#### cross(other, dim=-1) $\to$ Tensor
+请查看`torch.cross()`
+#### cuda(device=None, async=False)
+返回CUDA内存一个对象的副本
+如果对象已近存在与CUDA存储中并且在正确的设备上，则不会进行复制并返回原始对象。
+
+>参数：
+>* device(int)-目的GPU的id，默认为当前的设备。
+>* async(bool)-如果为True并且资源在固定内存中，则复制的副本将会与原始数据异步。否则，该参数没有意义。
+#### cumprod(dim) $\to$ Tensor
+请查看`torch.cumprod()`
+#### cumsum(dim) $\to$ Tensor
+请查看`torch.cumsum()`
+#### data_ptr() $\to$ int
+返回tensor第一个元素的地址
+#### diag(diagonal=0) $\to$ Tensor
+请查看`torch.diag()`
+#### dim() $\to$ int
+返回tensor的维数
+#### dist(other, p=2) $\to$ Tensor
+请查看`torch.dist()`
+#### div(value)
+请查看`torch.div()`
+#### div_(value)
+`div()`的原地运算形式
+#### dot(tensor2) $\to$ float
+请查看`torch.dot()`
+#### double()
+将该tensor投射位double类型
+#### eig(eigenvectors=False) -> (Tensor, Tensor)
+请查看`torch.eig()`
+#### element_size() $\to$ int
+返回单个元素的字节大小。
+例：
+```python
+>>> torch.FloatTensor().element_size()
+4
+>>> torch.ByteTensor().element_size()
+1
+```
+#### eq(other) $\to$ Tensor
+请查看`torch.eq()`
+#### eq_(other) $\to$ Tensor
+`eq()`的原地运算形式
+#### equal(other) $\to$ bool
+请查看`torch.equal()`
+#### exp() $\to$ Tensor
+请查看`torch.exp()`
+#### exp_() $\to$ Tensor
+`exp()`的原地运算形式
+#### expand(*sizes)
+返回tensor的一个新视图，单个维度扩大为更大的尺寸。
+tensor也可以扩大为更高维，新增加的维度将附在前面。
