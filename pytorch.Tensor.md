@@ -352,4 +352,6 @@ $$
 #### is_contiguous() $\to$ bool
 如果该tensor在内存中是连续的则返回True。
 #### is_cuda
-#### is_contiguous()
+#### is_pinned()
+如果该tensor在固定内内存中则返回True
+#### is_set_to(tensor) $\to$ bool
