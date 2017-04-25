@@ -308,3 +308,21 @@ $$
   5 6 7
 [torch.FloatTensor of size 3x3]
 ```
+#### index_copy_(dim, index, tensor) $\to$ Tensor
+按参数index中的指数确定的顺序，将参数tensor中的元素复制到原来的tensor中。参数tensor的尺寸必须严格地与原tensor匹配，否则会发生错误。
+>参数：
+>* dim(int)-索引index所指向的维度
+>* index(LongTensor)-需要从tensor中选取的指数
+>* tensor(Tensor)-含有被复制元素的tensor
+例：
+```python
+>>> x = torch.Tensor(3， 3)
+>>> t = torch.Tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+>>> index = torch.LongTensor([0, 2, 1])
+>>> x.index_add_(0, index, t)
+>>> x
+  1 2 3
+  7 8 9
+  4 5 6
+[torch.FloatTensor of size 3x3]
+```
