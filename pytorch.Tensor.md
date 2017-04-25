@@ -219,4 +219,75 @@ $$
 #### expand(*sizes)
 返回tensor的一个新视图，单个维度扩大为更大的尺寸。
 tensor也可以扩大为更高维，新增加的维度将附在前面。
-扩大tensor不需要分配新内存，但
+扩大tensor不需要分配新内存，只是仅仅新建一个tensor的视图，其中通过将`stride`设为0，一维将会扩展位更高维。任何一个一维的在不分配新内存情况下将会扩展为任意的数值。
+>参数： *sizes(torch.Size or int...)-需要的扩展尺寸
+例：
+```python
+>>> x = torch.Tensor([[1], [2], [3]])
+>>> x.size()
+torch.Size([3, 1])
+>>> x.expand(3, 4)
+ 1 1
+ 1 1
+ 2 2 2 2
+ 3 3 3 3
+ [torch.FloatTensor of size 3x4]
+```
+#### expand_as(tensor)
+将tensor扩展为确定大小的tensor。
+该操作等效与：
+```python
+self.expand(tensor.size())
+```
+#### exponential_(lambd=1, *, generator=None) $to$ Tensor
+将该tensor用指数分布得到的元素填充：
+$$
+P(x)=  \lambda e^{- \lambda x}
+$$
+#### fill_(value) $\to$ Tensor
+将该tensor用指定的数值填充
+#### float()
+将tensor投射为float类型
+#### floor() $\to$ Tensor
+请查看`torch.floor()`
+#### floor_() $\to$ Tensor
+`floor()`的原地运算形式
+#### fmod(divisor) $\to$ Tensor
+请查看`torch.fmod()`
+#### fmod_(divisor) $\to$ Tensor
+`fmod()`的原地运算形式
+#### frac() $\to$ Tensor
+请查看`torch.frac()`
+#### frac_() $\to$ Tensor
+`frac()`的原地运算形式
+#### gather(dim, index) $\to$ Tensor
+请查看`torch.gather()`
+#### ge(other) $\to$ Tensor
+请查看`torch.ge()`
+#### ge_(other) $\to$ Tensor
+`ge()`的原地运算形式
+#### gels(A) $\to$ Tensor
+请查看`torch.gels()`
+#### geometric_(p, *, generator=None) $\to$ Tensor
+将该tensor用指数分布得到的元素填充：
+$$
+P(X=k)=  (1-p)^{k-1}p
+$$
+#### geqrf() -> (Tensor, Tensor)
+请查看`torch.geqrf()`
+#### ger(vec2) $\to$ Tensor
+请查看`torch.ger()`
+#### gesv(A) $\to$ Tensor, Tensor
+请查看`torch.gesv()`
+#### gt(other) $\to$ Tensor
+请查看`torch.gt()`
+#### gt_(other) $\to$ Tensor
+`gt()`的原地运算形式
+#### half()
+将tensor投射为半精度浮点类型
+#### histc(bins=100, min=0, max=0) $\to$ Tensor
+请查看`torch.histc()`
+#### index(m) $\to$ Tensor
+用一个二进制的掩码或沿着一个给定的维度从tensor中选取元素。`tensor.index(m)`与`tensor[m]`完全相同。
+>参数： m(int or Byte Tensor or slice)-用来选取元素的维度或掩码
+#### index_add(dim, index, tensor) $\to$ Tensor
