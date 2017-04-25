@@ -343,3 +343,13 @@ $$
   -1 8 -1
 [torch.FloatTensor of size 3x3]
 ```
+#### index_select(dim, index) $\to$ Tensor
+请查看`torch.index_select()`
+#### int()
+将该tensor投射为int类型
+#### inverse() #\to# Tensor
+请查看`torch.inverse()`
+#### is_contiguous() $\to$ bool
+如果该tensor在内存中是连续的则返回True。
+#### is_cuda
+#### is_contiguous()
