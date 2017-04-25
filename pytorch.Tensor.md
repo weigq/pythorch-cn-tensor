@@ -290,4 +290,8 @@ $$
 #### index(m) $\to$ Tensor
 用一个二进制的掩码或沿着一个给定的维度从tensor中选取元素。`tensor.index(m)`与`tensor[m]`完全相同。
 >参数： m(int or Byte Tensor or slice)-用来选取元素的维度或掩码
-#### index_add(dim, index, tensor) $\to$ Tensor
+#### index_add_(dim, index, tensor) $\to$ Tensor
+>参数：
+>* dim(int)-索引index所指向的维度
+>* index(LongTensor)-需要从tensor中选取的指数
+>* tensor(Tensor)-含有相加元素的tensor
