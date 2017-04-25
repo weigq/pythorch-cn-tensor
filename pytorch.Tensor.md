@@ -319,10 +319,27 @@ $$
 >>> x = torch.Tensor(3， 3)
 >>> t = torch.Tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 >>> index = torch.LongTensor([0, 2, 1])
->>> x.index_add_(0, index, t)
+>>> x.index_copy_(0, index, t)
 >>> x
   1 2 3
   7 8 9
   4 5 6
+[torch.FloatTensor of size 3x3]
+```
+#### index_fill_(dim, index, val) $\to$ Tensor
+按参数index中的指数确定的顺序，将参原tensor用参数`val`值填充。
+>参数：
+>* dim(int)-索引index所指向的维度
+>* index(LongTensor)-指数
+>* tensor(Tensor)-填充的值
+例：
+```python
+>>> x = torch.Tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+>>> index = torch.LongTensor([0, 2])
+>>> x.index_fill_(0, index, -1)
+>>> x
+  -1 2 -1
+  -1 5 -1
+  -1 8 -1
 [torch.FloatTensor of size 3x3]
 ```
