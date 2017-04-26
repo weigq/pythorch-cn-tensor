@@ -402,3 +402,31 @@ def callable(a, b) -> number
 
 >注意：
 >`mask`作用于`self`自身的tensor，而不是参数中的`source`。
+#### masked_fill_(*mask, value*)
+在`mask`值为1的位置处用`value`填充。`mask`的元素个数需和本tensor相同，但尺寸可以不同。
+>参数：
+>* mask(*ByteTensor*)-二进制掩码
+>* value(*Tensor*)-用来填充的值
+#### masked_select(*mask*) $\to$ Tensor
+请查看`torch.masked_select()`
+#### max(*dim=None*) -> *float or(Tensor, Tensor)*
+请查看`torch.max()`
+#### mean(*dim=None*) -> *float or(Tensor, Tensor)*
+请查看`torch.mean()`
+#### median(*dim=-1, value=None, indices=None*) -> *(Tensor, LongTensor)*
+请查看`torch.median()`
+#### min(*dim=None*) -> *float or(Tensor, Tensor)*
+请查看`torch.min()`
+#### mm(*mat2*) $\to$ Tensor
+请查看`torch.mm()`
+#### mode(*dim=-1, value=None, indices=None*) -> *(Tensor, LongTensor)*
+请查看`torch.mode()`
+#### mul(*value*) $\to$ Tensor
+请查看`torch.mul()`
+#### mul_(*value*)
+`mul()`的原地运算形式
+#### multinomial(*num_samples, replacement=False, *, generator=None*) $\to$ Tensor
+请查看`torch.multinomial()`
+#### mv(*vec*) $\to$ Tensor
+请查看`torch.mv()`
+#### narrow(*dimension, start, length*) $\to$ Te
