@@ -395,4 +395,10 @@ $$
 def callable(a, b) -> number
 ```
 #### masked_copy_(*mask, source*)
-将`mask`中值为1的元素的对应`source`中的位置的元素复制
+将`mask`中值为1元素对应的`source`中位置的元素复制到本tensor中。`mask`应该有和本tensor相同数目的元素。`source`中元素的个数最少为`mask`中值为1的元素的个数。
+>参数：
+>* mask(*ByteTensor*)-二进制掩码
+>* source(*Tensor*)-复制的源tensor
+
+>注意：
+>`mask`作用于`self`自身的tensor，而不是参数中的`source`。
