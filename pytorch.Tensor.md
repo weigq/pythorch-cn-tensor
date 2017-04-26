@@ -394,3 +394,5 @@ $$
 ```pyhton
 def callable(a, b) -> number
 ```
+#### masked_copy_(*mask, source*)
+将`mask`中值为1的元素的对应`source`中的位置的元素复制
