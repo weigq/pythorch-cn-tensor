@@ -430,3 +430,10 @@ def callable(a, b) -> number
 #### mv(*vec*) $\to$ Tensor
 请查看`torch.mv()`
 #### narrow(*dimension, start, length*) $\to$ Te
+返回一个本tensor缩小版的tensor。维度`dim`
+>参数：
+>* dimension(*int*)-
+>* start(*int*)-起始维度
+>* length(*int*)-
+```python
+``` 
