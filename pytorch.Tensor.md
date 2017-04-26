@@ -286,7 +286,10 @@ $$
 #### half()
 将tensor投射为半精度浮点类型
 #### histc(bins=100, min=0, max=0) $\to$ Tensor
-请查看`torch.histc()`
+请查看`torch.histc()`将该tensor用指数分布得到的元素填充：
+$$
+P(X=k)=  (1-p)^{k-1}p
+$$
 #### index(m) $\to$ Tensor
 用一个二进制的掩码或沿着一个给定的维度从tensor中选取元素。`tensor.index(m)`与`tensor[m]`完全相同。
 >参数： m(int or Byte Tensor or slice)-用来选取元素的维度或掩码
@@ -355,3 +358,39 @@ $$
 #### is_pinned()
 如果该tensor在固定内内存中则返回True
 #### is_set_to(tensor) $\to$ bool
+如果此对象引用与Torch C API相同的THTensor对象作为给定的张量，则返回True。
+#### is_signed()
+#### kthvalue(k, dim=None) -> (Tensor, LongTensor)
+请查看`torch.kthvalue()`
+#### le(other) $\to$ Tensor
+请查看`torch.le()`
+#### le_(other) $\to$ Tensor
+`le()`的原地运算形式
+#### lerp(start, end, weight)
+请查看`torch.lerp()`
+#### lerp_(*start, end, weight*) $\to$ Tensor
+`lerp()`的原地运算形式
+#### log() $\to$ Tensor
+请查看`torch.log()`
+#### loglp() $\to$ Tensor
+请查看`torch.loglp()`
+#### loglp_() $\to$ Tensor
+`loglp()`的原地运算形式
+#### log_()$\to$ Tensor
+`log()`的原地运算形式
+#### log_normal_(*mwan=1, std=2, *, gegnerator=None*)
+将该tenso用均值为$\mu$,标准差为$\sigma$的对数正态分布得到的元素填充。要注意`mean`和`stdv`是基本正态分布的均值和标准差，不是返回的分布：
+$$
+P(X)= \frac {1} {x \sigma \sqrt {2 \pi}}e^{- \frac {(lnx- \mu)^2} {2 \sigma^2}}
+$$
+#### long()
+将tensor投射为long类型
+#### lt(*other*) $\to$ Tensor
+请查看`torch.lt()`
+#### lt_(*other*) $\to$ Tensor
+`lt()`的原地运算形式
+#### map_(*tensor, callable*)
+将`callable`作用于本tensor和参数tensor中的每一个元素，并将结果存放在本tenor中。`callable`应该有下列标志：
+```pyhton
+def callable(a, b) -> number
+```
