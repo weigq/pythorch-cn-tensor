@@ -505,3 +505,44 @@ torch.Size([5, 2, 3])
 #### qr()-> (*Tensor, IntTensor*)
 请查看`torch.qr()`
 #### random_(*from=0, to=None, *, generator=None*)
+将tensor用从在[from, to-1]上的正态分布或离散正态分布取样值进行填充。如果没有明确，则填充值仅由本tensor的数据类型限定。
+#### reciprocal() $\to$ Tensor
+请查看`torch.reciprocal()`
+#### reciprocal_() $\to$ Tensor
+`reciprocal()`的原地运算形式
+#### remainder(*divisor*) $\to$ Tensor
+请查看`torch.remainder()`
+#### remainder_(*divisor*) $\to$ Tensor
+`remainder()`的原地运算形式
+#### renorm(*p, dim, maxnorm*) $\to$ Tensor
+请查看`torch.renorm()`
+#### renorm_(*p, dim, maxnorm*) $\to$ Tensor
+`renorm()`的原地运算形式
+#### repeat(_*sizes_)
+沿着指定的维度重复tensor。
+不同于`expand()`，本函数复制的是tensor中的数据。
+>参数： *sizes(_torch.Size ot int..._)-沿着每一维重复的次数
+例：
+```python
+>>> x = torch.Tensor([1, 2, 3])
+>>> x.repeat(4, 2)
+ 1  2  3  1  2  3
+ 1  2  3  1  2  3
+ 1  2  3  1  2  3
+ 1  2  3  1  2  3
+[torch.FloatTensor of size 4x6]
+>>> x.repeat(4, 2, 1).size()
+torch.Size([4, 2, 3])
+```
+#### resize_(_*sizes_)
+将tensor的大小调整指定的大小。如果元素个数比当前的内存大小大，就将底层存储大小调整为与新元素数目一致的大小。如果元素个数比当前内存小，则底层存储不会被改变。原来tensor中被保存下来的元素将保持不变，但新内存将不会被初始化。
+>参数： *sizes(_torch.Size or int..._)-需要调整的大小
+例：
+```python
+>>> x = torch.Tensor([[1, 2], [3, 4], [5, 6]])
+>>> x.resize_(2, 2)
+>>> x
+ 1  2
+ 3  4
+[torch.FloatTensor of size 2x2]
+```
