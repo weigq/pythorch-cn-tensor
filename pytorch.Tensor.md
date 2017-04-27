@@ -764,3 +764,32 @@ self.type(tensor.type())
 ```
 #### uniform_(_from=0, to=1_) $\to$ Tensor
 将tensor用从均匀分布中抽样得到的值填充。
+#### unsqueeze(_dim_)
+请查看`torch.unsqueeze()`
+#### unsqueeze_(_dim_) $\to$ Tensor
+`unsqueeze()`的原地运算形式
+#### var()
+请查看`torch.var()`
+#### view(_*args_) $\to$ Tensor
+返回一个有相同数据但大小不同的tensor。
+返回的tensor必须有与原tensor相同的数据和相同数目的元素，但可以有不同的大小。一个tensor必须是连续的`contiguous()`才能被查看。
+例：
+```python
+>>> x = torch.randn(4, 4)
+>>> x.size()
+torch.Size([4, 4])
+>>> y = x.view(16)
+>>> y.size()
+torch.Size([16])
+>>> z = x.view(-1, 8)  # the size -1 is inferred from other dimensions
+>>> z.size()
+torch.Size([2, 8])
+```
+#### view_as(_tensor_)
+返回被视作与给定的tensor相同大小的原tensor。
+等效于：
+```python
+self.view(tensor.size())
+```
+#### zero_()
+用0填充该tensor。
