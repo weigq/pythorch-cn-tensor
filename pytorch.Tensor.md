@@ -686,3 +686,81 @@ torch.Size([3, 4, 5])
 请查看`torch.tanh()`
 #### tanh_() $\to$ Tensor
 `tanh()`的原地运算形式
+#### tolist()
+返回一个tensor的嵌套列表表示。
+#### topk(_k, dim=None, largest=True, sorted=True_) -> (Tensor, LongTensor)
+请查看`torch.topk()`
+#### trace() $\to$ float
+请查看`torch.trace()`
+#### transpose(_dim0, dim1_) $\to$ Tensor
+请查看`torch.transpose()`
+#### transpose(_dim0, dim1_) $\to$ Tensor
+`transpose()`的原地运算形式
+#### tril(_k=0_) $\to$ Tensor
+请查看`torch.tril()`
+#### tril_(_k=0_) $\to$ Tensor
+`tril()`的原地运算形式
+#### triu(_k=0_) $\to$ Tensor
+请查看`torch.triu()`
+#### triu(_k=0_) $\to$ Tensor
+`triu()`的原地运算形式
+#### trtrs(_A, upper=True, transpose=False, unitriangular=False_) -> (Tensor, Tensor)
+请查看`torch.trtrs()`
+#### trunc() $\to$ Tensor
+请查看`torch.trunc()`
+#### trunc() $\to$ Tensor
+`trunc()`的原地运算形式
+#### type(_new_type=None, async=False_)
+将对象投为指定的类型。
+如果已经是正确的类型，则不会进行复制并返回原对象。
+>参数：
+>* new_type(_type or string_)-需要的类型
+>* async(_bool_)-如果为True，并且源地址在固定内存中，目的地址在GPU或者相反，则会相对于源主异步执行复制。否则，该参数不发挥作用。
+#### type_as(_tesnor_)
+将tensor投射为参数给定tensor类型并返回。
+如果tensor已经是正确的类型则不会执行操作。等效于：
+```python
+self.type(tensor.type())
+```
+>参数： *tensor(Tensor):有所需要类型的tensor
+#### unfold(_dim, size, step_) $\to$ Tensor
+返回一个tensor，其中含有在`dim`维tianchong度上所有大小为`size`的分片。两个分片之间的步长为`step`。
+如果_sizedim_是dim维度的原始大小，则在返回tensor中的维度dim大小是_(sizedim-size)/step+1_
+维度大小的附加维度将附加在返回的tensor中。
+>参数：
+>* dim(_int_)-需要展开的维度
+>* size(_int_)-每一个分片需要展开的大小
+>* step(_int_)-相邻分片之间的步长
+例：
+```python
+>>> x = torch.arange(1, 8)
+>>> x
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+[torch.FloatTensor of size 7]
+
+>>> x.unfold(0, 2, 1)
+
+ 1  2
+ 2  3
+ 3  4
+ 4  5
+ 5  6
+ 6  7
+[torch.FloatTensor of size 6x2]
+
+>>> x.unfold(0, 2, 2)
+
+ 1  2
+ 3  4
+ 5  6
+[torch.FloatTensor of size 3x2]
+```
+#### uniform_(_from=0, to=1_) $\to$ Tensor
+将tensor用从均匀分布中抽样得到的值填充。
