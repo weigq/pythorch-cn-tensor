@@ -430,9 +430,9 @@ def callable(a, b) -> number
 #### mv(*vec*) $\to$ Tensor
 请查看`torch.mv()`
 #### narrow(*dimension, start, length*) $\to$ Te
-返回一个本tensor缩小版的tensor。维度`dim`
+返回一个本tensor经过缩小后的tensor。维度`dim`缩小范围是`start`到`start+length`。原tensor与返回的tensor共享相同的底层内存。
 >参数：
->* dimension(*int*)-
+>* dimension(*int*)-需要缩小的维度
 >* start(*int*)-起始维度
 >* length(*int*)-
 ```python
@@ -447,3 +447,61 @@ def callable(a, b) -> number
  8  9
 [torch.FloatTensor of size 3x2]
 ```
+#### ndimension() $\to$ int
+`dim()`的另一种表示。
+#### ne(*other*) $\to$ Tensor
+请查看`torch.ne()`
+#### ne_(*other*) $\to$ Tensor
+`ne()`的原地运算形式
+#### neg() $\to$ Tensor
+请查看`torch.neg()`
+#### neg_() $\to$ Tensor
+`neg()`的原地运算形式
+#### nelement() $\to$ int
+`numel()`的另一种表示
+#### new(_*args, **kwargs_)
+构建一个有相同数据类型的tensor
+#### nonezero() $\to$ LongTensor
+请查看`torch.nonezero()
+#### norm(*p=2*) $\to$ float
+请查看`torch.norm()
+#### normal_(*mean=0, std=1, *, gengerator=None*)
+将tensor用均值为`mean`和标准差为`std`的正态分布填充。
+#### numel() $\to$ int
+请查看`numel()`
+#### numpy() $\to$ ndarray
+将该tensor以NumPy的形式返回`ndarray`，两者共享相同的底层内存。原tensor改变后会相应的影响`ndarray`，反之也一样。
+#### orgqr(*input2*) $\to$ Tensor
+请查看`torch.orgqr()`
+#### ormqr(*input2, input3, left=True, transpose=False*) $\to$ Tensor
+请查看`torch.ormqr()`
+#### permute(*dims*)
+将tensor的维度换位。
+>参数： *dims(*int..*)-换位顺序
+例：
+```python
+>>> x = torch.randn(2, 3, 5)
+>>> x.size()
+torch.Size([2, 3, 5])
+>>> x.permute(2, 0, 1).size()
+torch.Size([5, 2, 3])
+```
+#### pin_memory()
+如果原来没有在固定内存中，则将tensor复制到固定内存中。
+#### potrf(*upper=True*) $\to$ Tensor
+请查看`torch.potrf()`
+#### potri(*upper=True*) $\to$ Tensor
+请查看`torch.potri()`
+#### potrs(*input2, upper=True*) $\to$ Tensor
+请查看`torch.potrs()`
+#### pow(*exponent*)
+请查看`torch.pow()`
+#### pow_()
+`pow()`的原地运算形式
+#### prod()) $\to$ float
+请查看`torch.prod()`
+#### pstrf(*upper=True, tol=-1*) -> (*Tensor, IntTensor*)
+请查看`torch.pstrf()`
+#### qr()-> (*Tensor, IntTensor*)
+请查看`torch.qr()`
+#### random_(*from=0, to=None, *, generator=None*)
