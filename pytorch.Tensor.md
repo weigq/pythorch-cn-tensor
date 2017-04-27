@@ -546,3 +546,143 @@ torch.Size([4, 2, 3])
  3  4
 [torch.FloatTensor of size 2x2]
 ```
+#### resize_as_(_tensor_)
+将本tensor的大小调整为与参数中的tensor相同的大小。等效于：
+```python
+self.resize_(tensor.size())
+```
+#### round() $\to$ Tensor
+请查看`torch.round()`
+#### round_() $\to$ Tensor
+`round()`的原地运算形式
+#### rsqrt() $\to$ Tensor
+请查看`torch.rsqrt()`
+#### rsqrt_() $\to$ Tensor
+`rsqrt()`的原地运算形式
+#### scatter_(*input, dim, index, src*) $\to$ Tensor
+将`src`中的所有值按照`index`确定的索引写入本tensor中。其中索引是根据给定的dimension，dim按照`gather()`描述的规则来确定。
+注意，index的值必须是在_0_到_(self.size(dim)-1)_之间，
+>参数：
+>* input(_Tensor_)-源tensor
+>* dim(_int_)-索引的轴向
+>* index(LongTensor)-
+>* src(_Tensor or float_)-
+例：
+```python
+>>> x = torch.rand(2, 5)
+>>> x
+
+ 0.4319  0.6500  0.4080  0.8760  0.2355
+ 0.2609  0.4711  0.8486  0.8573  0.1029
+[torch.FloatTensor of size 2x5]
+
+>>> torch.zeros(3, 5).scatter_(0, torch.LongTensor([[0, 1, 2, 0, 0], [2, 0, 0, 1, 2]]), x)
+
+ 0.4319  0.4711  0.8486  0.8760  0.2355
+ 0.0000  0.6500  0.0000  0.8573  0.0000
+ 0.2609  0.0000  0.4080  0.0000  0.1029
+[torch.FloatTensor of size 3x5]
+
+>>> z = torch.zeros(2, 4).scatter_(1, torch.LongTensor([[2], [3]]), 1.23)
+>>> z
+
+ 0.0000  0.0000  1.2300  0.0000
+ 0.0000  0.0000  0.0000  1.2300
+[torch.FloatTensor of size 2x4]
+```
+#### select(*dim, index*) $\to$ Tensor or number
+按照index中选定的维度将tensor切片。如果tensor是一维的，则返回一个数字。否则，返回给定维度已经被移除的tensor。
+>参数：
+>* dim(_int_)-切片的维度
+>* index(_int_)-用来选取的索引
+
+>注意：
+>`select()`等效于切片。例如，`tensor.select(0, index)`等效于`tensor[index]`，`tensor.select(2, index)`等效于`tensor[:, :, index]`.
+#### set(_source=None, storage_offset=0, size=None, stride=None_)
+设置底层内存，大小和步长。如果`tensor`是一个tensor，则将会与本tensor共享底层内存并且有相同的大小和步长。改变一个tensor中的元素将会反映在另一个tensor。
+如果`source`是一个`Storage`，则将设置底层内存，偏移量，大小和步长。
+>参数：
+>* source(_Tensor or Storage_)-用到的tensor或内存
+>* storage_offset(_int_)-内存的偏移量
+>* size(_torch.Size_)-需要的大小，默认为源tensor的大小。
+>* stride(_tuple_)-需要的步长，默认为C连续的步长。
+#### share_memory_()
+将底层内存移到共享内存中。
+如果底层内存已经在共享内存中是将不进行任何操作。在共享内存中的tensor不能调整大小。
+#### short()
+将tensor投射为short类型。
+#### sigmoid() $\to$ Tensor
+请查看`torch.sigmoid()`
+#### sigmoid_() $\to$ Tensor
+`sidmoid()`的原地运算形式
+#### sign() $\to$ Tensor
+请查看`torch.sign()`
+#### sign_() $\to$ Tensor
+`sign()`的原地运算形式
+#### sin() $\to$ Tensor
+请查看`torch.sin()`
+#### sin_() $\to$ Tensor
+`sin()`的原地运算形式
+#### sinh() $\to$ Tensor
+请查看`torch.sinh()`
+#### sinh_() $\to$ Tensor
+`sinh()`的原地运算形式
+#### size() $\to$ torch.Size
+返回tensor的大小。返回的值是`tuple`的子类。
+例：
+```python
+>>> torch.Tensor(3, 4, 5).size()
+torch.Size([3, 4, 5])
+```
+#### sort(_dim=None, descending=False_) -> (_Tensor, LongTensor_)
+请查看`torhc.sort()`
+#### split(_split_size, dim=0_)
+将tensor分割成tensor数组。
+请查看`torhc.split()`
+#### sqrt() $\to$ Tensor
+请查看`torch.sqrt()`
+#### sqrt_() $\to$ Tensor
+`sqrt()`的原地运算形式
+#### squeeze(_dim=None_) $\to$ Tensor
+请查看`torch.squeeze()`
+#### squeeze_(_dim=None_) $\to$ Tensor
+`squeeze()`的原地运算形式
+#### std() $\to$ float
+请查看`torch.std()`
+#### storage() $\to$ torch.Storage
+返回底层内存。
+#### storage_offset() $\to$ int
+以储存元素的个数的形式返回tensor在地城内存中的偏移量。
+例：
+```python
+>>> x = torch.Tensor([1, 2, 3, 4, 5])
+>>> x.storage_offset()
+0
+>>> x[3:].storage_offset()
+3
+```
+#### _classmethod()_ storage_type()
+#### stride() $\to$ Tensor
+返回tesnor的步长。
+#### sub(_value, other_) $\to$ Tensor
+从tensor中抽取一个标量或tensor。如果`value`和`other`都是给定的，则在使用之前`other`的每一个元素都会被`value`缩放。
+#### sub_(_x_) $\to$ Tensor
+`sub()`的原地运算形式
+#### sum(_dim=None_) $\to$ Tensor
+请查看`torch.sum()`
+#### svd(_some=True_) -> (Tensor, Tensor, Tensor)
+请查看`torch.svd()`
+#### symeig(_eigenvectors=False, upper=True) -> (Tensor, Tensor)
+请查看`torch.symeig()`
+#### t() $\to$ Tensor
+请查看`torch.t()`
+#### t() $\to$ Tensor
+`t()`的原地运算形式
+#### tan() $\to$ Tensor
+请查看`torch.tan()`
+#### tan_() $\to$ Tensor
+`tan()`的原地运算形式
+#### tanh() $\to$ Tensor
+请查看`torch.tanh()`
+#### tanh_() $\to$ Tensor
+`tanh()`的原地运算形式
