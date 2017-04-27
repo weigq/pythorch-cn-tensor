@@ -1,7 +1,7 @@
 # torch.Tensor
 `torch.Tensor`是一种包含单一数据类型元素的多维矩阵。
 
-Torch定义了七种CPU张量类型和八种GPU张量类型：
+Torch定义了七种CPU tensor类型和八种GPU tensor类型：
 
 | Data tyoe | CPU tensor | GPU tensor|
 | :---: | :---: | :---: |
@@ -793,3 +793,4 @@ self.view(tensor.size())
 ```
 #### zero_()
 用0填充该tensor。
+xit
